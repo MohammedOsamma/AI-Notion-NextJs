@@ -7,6 +7,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { useUser } from "@clerk/nextjs";
+import Breadcrumbs from "./ui/Breadcrumbs";
 
 export default function Header() {
   const { user } = useUser();
@@ -19,6 +20,7 @@ export default function Header() {
         </h1>
       )}
       {/* "BreadCrumps" */}
+      <Breadcrumbs />
       <div>
         <SignedOut>
           <SignInButton />

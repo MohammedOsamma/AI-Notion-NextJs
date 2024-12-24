@@ -11,6 +11,7 @@ function SidebarOption({ href, id }: { href: string; id: string }) {
   const pathname = usePathname();
   //   To Make Option Get Active when i Select it
   const isActive = href.includes(pathname) && pathname !== "/";
+
   return (
     <Link
       href={href}

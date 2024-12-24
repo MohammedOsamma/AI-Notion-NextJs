@@ -49,11 +49,6 @@ export default function Sidebar() {
   );
 
   useEffect(() => {
-    console.log("Firestore Data:", data?.docs); // Logs all fetched documents
-    console.log("Current User Email:", userEmail); // Ensure correct email is being used
-  }, [data]);
-
-  useEffect(() => {
     if (!data) return;
 
     const grouped = data.docs.reduce<{
@@ -98,7 +93,7 @@ export default function Sidebar() {
               My Documents
             </h2>
             {groupedData.owner.map((doc) => (
-              <SidebarOption key={doc.id} id={doc.id} href={`/doc/{doc.id}`} />
+              <SidebarOption key={doc.id} id={doc.id} href={`/doc/${doc.id}`} />
             ))}
           </>
         )}
@@ -110,7 +105,7 @@ export default function Sidebar() {
             Shared With Me
           </h2>
           {groupedData.editor.map((doc) => (
-            <SidebarOption key={doc.id} id={doc.id} href={`/doc/{doc.id}`} />
+            <SidebarOption key={doc.id} id={doc.id} href={`/doc/${doc.id}`} />
           ))}
         </>
       )}
