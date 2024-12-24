@@ -7,7 +7,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { useUser } from "@clerk/nextjs";
-import Breadcrumbs from "./ui/Breadcrumbs";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Header() {
   const { user } = useUser();

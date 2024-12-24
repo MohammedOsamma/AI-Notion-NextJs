@@ -8,14 +8,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "./breadcrumb";
+} from "./ui/breadcrumb";
 import { Fragment } from "react";
 
 function Breadcrumbs() {
   const path = usePathname();
   const segments = path.split("/");
-
-  console.log(segments);
 
   return (
     <Breadcrumb>

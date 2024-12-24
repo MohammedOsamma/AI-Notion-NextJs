@@ -19,7 +19,7 @@ import {
   DocumentData,
 } from "firebase/firestore";
 import { db } from "@/firebase";
-import SidebarOption from "./ui/SidebarOption";
+import SidebarOption from "./SidebarOption";
 
 // Define the interface
 interface RoomDocument extends DocumentData {

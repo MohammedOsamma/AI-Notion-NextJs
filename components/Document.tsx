@@ -12,12 +12,14 @@ function Document({ id }: { id: string }) {
   const [isUpdate, startTransition] = useTransition();
   const [data, error, loading] = useDocumentData(doc(db, "documents", id));
 
+  // To Put The Title Of Doc in Input when Refresh
   useEffect(() => {
     if (data) {
       setInput(data.title);
     }
   }, [data]);
 
+  // Form Submit Functions
   const updateTitle = (e: FormEvent) => {
     e.preventDefault();
 
@@ -29,6 +31,7 @@ function Document({ id }: { id: string }) {
       });
     }
   };
+
   return (
     <div>
       <div className="flex max-w-6xl mx-auto  justify-center pb-5">
