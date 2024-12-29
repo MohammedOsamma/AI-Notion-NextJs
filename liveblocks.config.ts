@@ -4,13 +4,13 @@ declare global {
   interface Liveblocks {
     // Each user's Presence, for useMyPresence, useOthers, etc.
     Presence: {
-      // Example, real-time cursor coordinates
-      cursor: { x: number; y: number }|null;
+      // Example: real-time cursor coordinates
+      cursor: { x: number; y: number } | null;
     };
 
     // The Storage tree for the room, for useMutation, useStorage, etc.
     Storage: {
-      // Example, a conflict-free list
+      // Example: a conflict-free list
       // animals: LiveList<string>;
     };
 
@@ -18,32 +18,31 @@ declare global {
     UserMeta: {
       id: string;
       info: {
-       name:string,
-       email:string,
-       avatar:string
-
+        name: string;
+        email: string;
+        avatar: string;
+      };
     };
 
     // Custom events, for useBroadcastEvent, useEventListener
-    RoomEvent: {};
-      // Example has two events, using a union
-      // | { type: "PLAY" } 
-      // | { type: "REACTION"; emoji: "🔥" };
+    RoomEvent: {}; // Example has two events, using a union
+    // | { type: "PLAY" }
+    // | { type: "REACTION"; emoji: "🔥" };
 
     // Custom metadata set on threads, for useThreads, useCreateThread, etc.
     ThreadMetadata: {
-      // Example, attaching coordinates to a thread
+      // Example: attaching coordinates to a thread
       // x: number;
       // y: number;
     };
 
     // Custom room info set with resolveRoomsInfo, for useRoomInfo
     RoomInfo: {
-      // Example, rooms with a title and url
+      // Example: rooms with a title and url
       // title: string;
       // url: string;
     };
   }
 }
 
-export {};
+export { global };

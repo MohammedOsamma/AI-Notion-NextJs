@@ -1,13 +1,14 @@
 "use client";
 
-import { useMyPresence, useOther } from "@liveblocks/react/suspense";
+import { useMyPresence, useOthers } from "@liveblocks/react/suspense";
 import FollowPointer from "./FollowPointer";
+import { PointerEvent } from "react";
 
 function LiveCursorProvider({ children }: { children: React.ReactNode }) {
   const [myPresence, updateMyPresence] = useMyPresence();
-  const others = useOther();
+  const others = useOthers();
 
-  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+  function handlePointerMove(e: PointerEvent<HTMLDivElement>) {
     const cursor = { x: Math.floor(e.pageX), y: Math.floor(e.pageY) };
     updateMyPresence({ cursor });
   }
