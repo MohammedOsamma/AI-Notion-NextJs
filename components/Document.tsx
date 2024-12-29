@@ -9,6 +9,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import Editor from "./Editor";
 import useOwner from "../lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
+import InviteUser from "./InviteUser";
 function Document({ id }: { id: string }) {
   const [input, setInput] = useState("");
   const [isUpdate, startTransition] = useTransition();
@@ -50,8 +51,7 @@ function Document({ id }: { id: string }) {
           </Button>
           {isOwner && (
             <>
-              {/* InviteUser */}
-              {/* deleteDocument */}
+             <InviteUser />
               <DeleteDocument />
             </>
           )}

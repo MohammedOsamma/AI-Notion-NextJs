@@ -97,7 +97,6 @@ export default function Sidebar() {
             ))}
           </>
         )}
-      </div>
       {/* Share With Me  */}
       {groupedData.editor.length > 0 && (
         <>
@@ -109,6 +108,8 @@ export default function Sidebar() {
           ))}
         </>
       )}
+      </div>
+
     </>
   );
 
