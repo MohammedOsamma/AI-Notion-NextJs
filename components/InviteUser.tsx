@@ -14,6 +14,7 @@ import {Button} from "./ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { inviteUserToDocument } from "@/actions/actions";
 import {toast} from "sonner";
+import { Input } from "./ui/input";
 
 function InviteUser() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ function InviteUser() {
           </DialogDescription>
         </DialogHeader>
       <form className ="flex gap-2" onSubmit={handleInvite}>
-        <input type="email" placeholder="Email" className="w-full" value ={email} onChange={(e)=> setEmail(e.target.value)} />
+        <Input type="email" placeholder="Email" className="w-full" value ={email} onChange={(e)=> setEmail(e.target.value)} />
         <Button type="submit" disabled ={!email||isPending}>{isPending ? "Inviting ...": "Invite"}</Button>
       </form>
       </DialogContent>
