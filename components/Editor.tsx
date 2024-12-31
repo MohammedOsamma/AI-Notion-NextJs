@@ -74,6 +74,7 @@ function Editor() {
     <div className="max-w-6xl mx-auto">
       <div className="flex gap-2 items-center justify-end mb-10">
         {/* Translate Document Ai  */}
+        
         {/* ChatDocumentAi  */}
         {/* DarkMode  */}
         <Button className={style} onClick={() => setDarkMode(!darkMode)}>
