@@ -63,7 +63,11 @@ export async function inviteUserToDocument(roomId:string , email:string){
   console.log("inviteUserToDocument" ,roomId ,email)
 
   try{
-    await adminDb.collection("users").doc(email).collection("rooms").doc(roomId).set({
+    await adminDb.collection("users")
+    .doc(email)
+    .collection("rooms")
+    .doc(roomId)
+    .set({
       userId:email,
       role:"editor",
       createdAt:new Date(),
@@ -74,4 +78,21 @@ export async function inviteUserToDocument(roomId:string , email:string){
     console.log(error);
     return{success :false};
   }
+}
+
+export async function removeUserFormDocument(roomId: string  ,email: string  ){
+try{
+  auth.protect();
+
+  await adminDb.collection("users")
+  .doc(email)
+  .collection('rooms')
+  .doc(roomId)
+  .delete();
+
+  return {success:true};
+}catch(error){
+  console.log(error);
+  return {success :false };
+}
 }

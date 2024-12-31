@@ -10,6 +10,7 @@ import Editor from "./Editor";
 import useOwner from "../lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
 function Document({ id }: { id: string }) {
   const [input, setInput] = useState("");
   const [isUpdate, startTransition] = useTransition();
@@ -57,9 +58,11 @@ function Document({ id }: { id: string }) {
           )}
         </form>
       </div>
-      <div>
+      <div className="flex max-w-6xl mx-auto justify-between items-center mb-5">
         {/* ManageUsers */}
+        <ManageUsers />
         {/* Avatarts */}
+        
       </div>
       <hr className="pb-10" />
       <Editor />
