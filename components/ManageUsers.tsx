@@ -33,16 +33,17 @@ function ManageUsers() {
   )
 
   const handleDelete =  (userId: string )=>{
-   startTransition(async ()=>{
+   startTransition( ()=>{
+    (async ()=>{
         if(!user) return;
-
         const {success} = await removeUserFormDocument(room.id , userId);
-
         if(success){
             return toast.success("User removed from room successfully!");
         }else{
             return toast.error("Failed to remove user from room!");
         }
+
+   })();
    })
   };
   return (

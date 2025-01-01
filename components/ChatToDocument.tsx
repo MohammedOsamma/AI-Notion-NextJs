@@ -45,9 +45,7 @@ function ChatToDocument({doc}:{doc:Y.Doc}) {
             }),
             }
         );
-        if (res.ok){
-          console.log("HEllo From The Other World ");
-        }
+       
             if (res.ok){
                 const {message} =await res.json();
                 setInput("");

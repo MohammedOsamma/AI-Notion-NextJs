@@ -9,11 +9,16 @@ export async function POST(req: NextRequest) {
   const { sessionClaims } = await auth();
   const { room } = await req.json();
 
-  const session = liveblocks.prepareSession(sessionClaims?.email!, {
+  if (!sessionClaims?.email || typeof sessionClaims.email !== 'string') {
+    throw new Error("User email is not valid");
+  }
+
+  const avatar = typeof sessionClaims?.image === 'string' ? sessionClaims?.image : '';
+  const session = liveblocks.prepareSession(sessionClaims?.email, {
     userInfo: {
       name: sessionClaims?.fullName!,
       email: sessionClaims?.email!,
-      avatar: sessionClaims?.image!,
+      avatar: avatar,
     },
   });
 

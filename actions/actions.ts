@@ -8,7 +8,7 @@ export async function createNewDocument() {
   const { sessionClaims } = await auth();
 
   // Ensure the sessionClaims exist before proceeding
-  if (!sessionClaims || !sessionClaims.email) {
+  if (!sessionClaims?.email || typeof sessionClaims?.email !== "string") {
     throw new Error("User not authenticated or email not found");
   }
 
@@ -35,7 +35,7 @@ export async function createNewDocument() {
 export async function deleteDocument(roomId:string){
   // we delete documnet referance itself 
   auth.protect();
-  console.log("deleteDocument" , roomId);
+  
 
   try {
 
@@ -52,7 +52,7 @@ export async function deleteDocument(roomId:string){
     await liveblocks.deleteRoom(roomId);
     return {success :true };
   }catch(error){
-    console.log(error);
+
     return {sucess:false};
   }
   
@@ -60,8 +60,7 @@ export async function deleteDocument(roomId:string){
 
 export async function inviteUserToDocument(roomId:string , email:string){
   auth.protect();
-  console.log("inviteUserToDocument" ,roomId ,email)
-
+  
   try{
     await adminDb.collection("users")
     .doc(email)
@@ -75,7 +74,7 @@ export async function inviteUserToDocument(roomId:string , email:string){
     })
     return {success :true};
   }catch(error){
-    console.log(error);
+  
     return{success :false};
   }
 }
@@ -92,7 +91,6 @@ try{
 
   return {success:true};
 }catch(error){
-  console.log(error);
   return {success :false };
 }
 }

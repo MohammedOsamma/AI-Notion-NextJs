@@ -13,7 +13,7 @@ function Avatars() {
    const others = useOthers();
 
    const all =[self , ...others];
-   console.log(all);
+   
    
     useOthers();
   return (
