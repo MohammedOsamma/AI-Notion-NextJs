@@ -66,7 +66,7 @@ function TranslateDocument({doc} :{doc:Y.Doc}) {
 
         startTransition( async ()=>{
           
-            const documentData =doc.get('document-store').toJSON();
+            const documentData =JSON.stringify(doc.get('document-store').toJSON());
             
             const res =await fetch(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/translateDocument`,{
@@ -83,7 +83,6 @@ function TranslateDocument({doc} :{doc:Y.Doc}) {
                 
                 if (res.ok){
                     const {translated_text} =await res.json();
-              
                     setSummary(translated_text);
                     toast.success("Translated Summary Successfully!");
                 }
@@ -109,19 +108,15 @@ function TranslateDocument({doc} :{doc:Y.Doc}) {
  
       </DialogHeader>
 
-    {
-        summary && console.log(summary) (
-            <div className =' flex flex-col items-start max-h-96 overflow-y-scroll gap-2 p-5 bg-gray-100'>
-                <div className="flex">
-                    <BotIcon  className="w-10 flex-shrink-0"/>
-                    <p className="font-bold">
-                        GPT {isPending ?"is thinking ...":"Says:"}
-                    </p>
-                </div>
-                <p>{isPending ? "Thinking...":<Markdown>{summary}</Markdown>}</p>
-            </div>
-        )
-    }
+{summary && (
+  <div className="flex flex-col items-start max-h-96 overflow-y-scroll gap-2 p-5 bg-gray-100">
+    <div className="flex">
+      <BotIcon className="w-10 flex-shrink-0" />
+      <p className="font-bold">GPT Says:</p>
+    </div>
+    <Markdown>{summary}</Markdown>
+  </div>
+)}
 
     <form className ="flex gap-2" onSubmit={handleAskQuestion}>
      <Select value={language} onValueChange={(value)=>setLanguage(value)}>
