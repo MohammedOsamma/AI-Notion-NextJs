@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Collaborative Document Editor 🚀
+A real-time collaborative document editing platform with AI-powered features, built with Next.js, Liveblocks, Firebase, and BlockNote.
 
-## Getting Started
 
-First, run the development server:
+# ✨ Features
 
-```bash
+Core Functionality
+   
+- Real-time collaboration with multiple users
+- Live cursors showing other users' positions
+- Document management (create, update, delete)
+- User roles (owner/editor) with permission control
+
+ AI-Powered Tools
+  
+- Chat with Document - Ask questions about document content
+- Document Translation (implied by component)
+- Markdown support for rich text formatting
+  
+  UI/UX
+  
+- Dark/Light mode toggle
+- Breadcrumb navigation
+- User presence indicators (avatars)
+- Responsive sidebar for document management
+
+
+# 🛠️ Tech Stack
+ Frontend:
+
+- Next.js 13 (App Router)
+- Liveblocks (Yjs integration)
+- BlockNote (rich text editor)
+- Shadcn UI
+
+Backend:
+
+- Firebase Firestore
+- Clerk Authentication
+
+Utilities:
+
+- Sonner (toasts)
+- React Hook Form
+- Framer Motion
+
+
+# 🧩 Key Components
+
+Important Functions
+
+- handleAskQuestion() - AI document Q&A
+- updateTitle() - Firebase document updates
+- handleInvite() - User collaboration management
+- Real-time sync via LiveblocksYjsProvider
+
+Hooks Used
+
+- useOthers, useSelf (Liveblocks presence)
+- useTransition for optimistic UI
+- useDocumentData (Firebase)
+- usePathname, useRouter (Next.js navigation)
+
+  
+# 🚀 Getting Started
+
+Environment Setup
+
+1- Clone repo
+-git clone [your-repo-url]
+
+2- Install dependencies
+- npm install
+
+3- Set up environment variables
+cp .env.example .env.local
+
+- Required Services
+- Liveblocks API key
+- Firebase project
+- Clerk auth setup
+
+- Run Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
