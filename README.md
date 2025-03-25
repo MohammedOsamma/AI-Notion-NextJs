@@ -16,8 +16,8 @@ Core Functionality
 - Chat with Document - Ask questions about document content
 - Document Translation (implied by component)
 - Markdown support for rich text formatting
-  
-  UI/UX
+
+UI/UX
   
 - Dark/Light mode toggle
 - Breadcrumb navigation
@@ -73,12 +73,14 @@ Environment Setup
 - npm install
 
 3- Set up environment variables
-cp .env.example .env.local
+- cp
+- .env.example
+- .env.local
 
-- Required Services
+Required Services
 - Liveblocks API key
 - Firebase project
 - Clerk auth setup
 
-- Run Development Server
-npm run dev
+Run Development Server
+- npm run dev
